@@ -1,0 +1,29 @@
+---
+layout: base.njk
+pagination:
+  data: newtArticles
+  size: 1
+  alias: article
+permalink: "posts/{{ article.slug }}/"
+---
+
+<article>
+  <h1>{{ article.title }}</h1>
+  <p>公開日: {{ article.publishedAt | date("YYYY年MM月DD日") }}</p>
+  
+  <div class="content">
+    {{ article.body | safe }}
+  </div>
+  
+  {% if article.tags and article.tags.length %}
+  <div class="tags">
+    <h3>タグ:</h3>
+    <ul>
+      {% for tag in article.tags %}
+      <li>{{ tag }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</article>
+

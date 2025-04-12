@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: ブログホーム
+---
+
+<h2>最新記事</h2>
+<ul class="post-list">
+{% for article in newtArticles %}
+  <li>
+    <h3><a href="/posts/{{ article.slug }}/">{{ article.title }}</a></h3>
+    <p>公開日: {{ article.publishedAt | date("YYYY年MM月DD日") }}</p>
+    <p>{{ article.body | truncate(100) }}</p>
+  </li>
+{% endfor %}
+</ul>
+
