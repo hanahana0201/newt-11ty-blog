@@ -11,33 +11,41 @@ eleventyComputed:
 
 <article>
   <h1>{{ article.title }}</h1>
-  
+
   {% if article.publishedAt %}
   <p>公開日: {{ article.publishedAt | date }}</p>
-  {% endif %}
-
-  {% if article.author %}
-<div class="author">
-  {% if article.author.profileImage %}
-  <img src="{{ article.author.profileImage.src }}" alt="{{ article.author.fullName }}" width="50" height="50">
-  {% endif %}
-  <p>著者: <a href="/authors/{{ article.author.slug }}/">{{ article.author.fullName }}</a></p>
-  {% if article.author.biography %}
-  <div class="biography">{{ article.author.biography | safe }}</div>
-  {% endif %}
-</div>
-{% endif %}
-
-  {% if article.coverImage %}
+  {% endif %} {% if article.author %}
+  <div class="author">
+    {% if article.author.profileImage %}
+    <img
+      src="{{ article.author.profileImage.src }}"
+      alt="{{ article.author.fullName }}"
+      width="50"
+      height="50"
+    />
+    {% endif %}
+    <p>
+      著者:
+      <a href="/authors/{{ article.author.slug }}/"
+        >{{ article.author.fullName }}</a
+      >
+    </p>
+    {% if article.author.biography %}
+    <div class="biography">{{ article.author.biography | safe }}</div>
+    {% endif %}
+  </div>
+  {% endif %} {% if article.coverImage %}
   <div class="cover-image">
-    <img src="{{ article.coverImage.src }}" alt="{{ article.title }}" width="100%">
+    <img
+      src="{{ article.coverImage.src }}"
+      alt="{{ article.title }}"
+      width="100%"
+    />
   </div>
   {% endif %}
-  
-  <div class="content">
-    {{ article.body | safe }}
-  </div>
-  
+
+  <div class="content">{{ article.body | safe }}</div>
+
   {% if article.tags and article.tags.length %}
   <div class="tags">
     <h3>タグ:</h3>

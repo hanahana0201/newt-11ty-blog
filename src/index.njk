@@ -5,16 +5,15 @@ title: ブログホーム
 
 <h2>最新記事</h2>
 <ul class="post-list">
-{% for article in newtArticles %}
+  {% for article in newtArticles %}
   <li>
     <h3><a href="/posts/{{ article.slug }}/">{{ article.title }}</a></h3>
     {% if article.publishedAt %}
-<p>公開日: {{ article.publishedAt | date }}</p>
-{% else %}
-<p>公開日: 未設定</p>
-{% endif %}
+    <p>公開日: {{ article.publishedAt | date }}</p>
+    {% else %}
+    <p>公開日: 未設定</p>
+    {% endif %}
     <p>{{ article.body | striptags | truncate(100) }}</p>
   </li>
-{% endfor %}
+  {% endfor %}
 </ul>
-
