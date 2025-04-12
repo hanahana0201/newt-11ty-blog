@@ -1,0 +1,25 @@
+---
+layout: base.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: "tags/{{ tag.slug }}/"
+eleventyComputed:
+  title: "タグ: {{ tag.name }}"
+---
+
+<h1>タグ: {{ tag.name }}</h1>
+
+<ul class="post-list">
+{% for article in collections.tagArticles[tag.slug] %}
+  <li>
+    <h2><a href="/posts/{{ article.slug }}/">{{ article.title }}</a></h2>
+    {% if article.publishedAt %}
+    <p>公開日: {{ article.publishedAt | date }}</p>
+    {% endif %}
+    <p>{{ article.body | striptags | truncate(100) }}</p>
+  </li>
+{% endfor %}
+</ul>
+

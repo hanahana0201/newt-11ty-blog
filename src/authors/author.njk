@@ -1,0 +1,34 @@
+---
+layout: base.njk
+pagination:
+  data: collections.authorList
+  size: 1
+  alias: author
+permalink: "authors/{{ author.slug }}/"
+eleventyComputed:
+  title: "著者: {{ author.fullName }}"
+---
+
+<div class="author-profile">
+  {% if author.profileImage %}
+  <img src="{{ author.profileImage.src }}" alt="{{ author.fullName }}" width="100" height="100">
+  {% endif %}
+  <h1>{{ author.fullName }}</h1>
+  {% if author.biography %}
+  <div class="biography">{{ author.biography | safe }}</div>
+  {% endif %}
+</div>
+
+<h2>{{ author.fullName }}の記事</h2>
+<ul class="post-list">
+{% for article in collections.authorArticles[author.slug] %}
+  <li>
+    <h3><a href="/posts/{{ article.slug }}/">{{ article.title }}</a></h3>
+    {% if article.publishedAt %}
+    <p>公開日: {{ article.publishedAt | date }}</p>
+    {% endif %}
+    <p>{{ article.body | striptags | truncate(100) }}</p>
+  </li>
+{% endfor %}
+</ul>
+

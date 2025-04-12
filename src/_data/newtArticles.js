@@ -8,28 +8,23 @@ const client = createClient({
 })
 
 module.exports = async function () {
-  // Newtからコンテンツを取得（_sysフィールドを含める）
+  // 記事データを取得（著者とタグの情報も含める）
   const articles = await client.getContents({
     appUid: process.env.NEWT_APP_UID,
-    modelUid: process.env.NEWT_MODEL_UID,
+    modelUid: 'article',
     query: {
-      select: ['title', 'slug', 'body', '_sys', 'tags'],
-      order: ['-_sys.raw.publishedAt'] // 公開日時で並べ替え
+      select: ['title', 'slug', 'body', '_sys', 'coverImage', 'author', 'tags'],
+      populate: ['author', 'tags']  // 著者とタグの情報を展開
     }
   })
 
-  // _sys.raw.publishedAtをpublishedAtとして使用
+  // 整形したデータを返す
   const formattedArticles = articles.items.map(article => {
-    // システムフィールドから公開日時を取得
-    const publishedAt = article._sys?.raw?.publishedAt || article._sys?.createdAt;
-
     return {
       ...article,
-      publishedAt: publishedAt
+      publishedAt: article._sys?.raw?.publishedAt || article._sys?.createdAt
     };
   });
-
-  console.log('最初の記事の公開日時:', formattedArticles[0]?.publishedAt);
 
   return formattedArticles;
 }
