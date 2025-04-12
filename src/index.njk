@@ -8,7 +8,11 @@ title: ブログホーム
 {% for article in newtArticles %}
   <li>
     <h3><a href="/posts/{{ article.slug }}/">{{ article.title }}</a></h3>
-    <p>公開日: {{ article.publishedAt | date("YYYY年MM月DD日") }}</p>
+    {% if article.publishedAt %}
+<p>公開日: {{ article.publishedAt | date }}</p>
+{% else %}
+<p>公開日: 未設定</p>
+{% endif %}
     <p>{{ article.body | striptags | truncate(100) }}</p>
   </li>
 {% endfor %}

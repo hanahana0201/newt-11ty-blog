@@ -1,0 +1,68 @@
+
+> newt-11ty-blog@1.0.0 start
+> eleventy --serve
+
+取得したデータ全体:
+{
+  skip: 0,
+  limit: 100,
+  total: 3,
+  items: [
+    {
+      title: 'Fictitiousをクイックにスタートする方法',
+      slug: 'article-3',
+      body: '<h2>ステップ1</h2>\n' +
+        '<p>このガイドでは、Appの作成からコンテンツの作成、APIでの取得まで順を追って紹介します。<br>\n' +
+        'まずはAppを追加しましょう。「Appを追加」から「新規作成」を選択します。<code>App UID</code>はAPIで情報を取得する時のURLとして利用されます。ここで設定する情報は、あとで変更可能です。</p>\n' +
+        '<h2>ステップ2</h2>\n' +
+        '<p>「モデルを作成」を選択し、モデルを新規作成します。モデル UIDはAPIで情報を取得する時のURLとして利用されます。ここで設定する情報は、あとで変更可能です。続いて、モデルのフィールドを追加します。ここではタイトル（<code>フィールドID: title</code>）と本文（<code>フィールドID: body</code>）を設定しました。設定が終わったら、保存ボタンを押してください。</p>\n' +
+        '<p>APIのエンドポイントは以下のようになっているため、まずプロジェクトUID・App UID・モデルUIDを確認します。</p>\n' +
+        '<pre><code>https://{projectUid}.cdn.newt.so/v1/{appUid}/{modelUid}\n' +
+        '</code></pre>\n' +
+        '<h2>最後にFictitiousの特徴を紹介します</h2>\n' +
+        '<ol>\n' +
+        '<li>Appによる分かり易いサイト設計とコンテンツ管理</li>\n' +
+        '<li>コンテンツに応じた管理画面の作成</li>\n' +
+        '<li>コンテンツ管理をもっと楽しく。</li>\n' +
+        '<li>Appテンプレートで簡単スタート</li>\n' +
+        '</ol>\n',
+      tags: [Array]
+    },
+    {
+      title: 'Fictitious Communityがパンデミックの間イベントをどのように主催したか',
+      slug: 'article-2',
+      body: '<h2>Fictitiousコミュニティ</h2>\n' +
+        '<p>コミュニティは常にFictitiousの中心でした。多くの人々がコミュニティに加わるにつれて、世界中のユーザーが独自のコミュニティを形成し始めまていました。<br>\n' +
+        'しかし、世界的なパンデミックがおき行動は制限されました。そんな中でもコミュニティは、世界中で素晴らしいイベントを何度も開催してくれました。</p>\n' +
+        '<ul>\n' +
+        '<li>4/4 Fictitious Camp</li>\n' +
+        '<li>6/9 Fictitious conference 2021</li>\n' +
+        '<li>9/5 Meetup! Fictitious</li>\n' +
+        '</ul>\n' +
+        '<p><strong>オンラインイベントの大きなチャンスは、より多くのオーディエンスにリーチできること</strong>。コミュニティは以前にもまして国際的になり、予想外の成長を遂げました。</p>\n' +
+        '<h2>Thank you</h2>\n' +
+        '<p>今年イベントに参加してくださった皆様、ありがとうございました。来年もこの取り組みを継続するために取り組んでいきます。今後のイベントにも是非参加してください。リスト</p>\n',
+      tags: [Array]
+    },
+    {
+      title: 'Fictitious Communities Summit 2021のレポート',
+      slug: 'article-1',
+      body: '<h2>Fictitiousの新機能の発表</h2>\n' +
+        '<p>ファウンダー兼CEOのDonna Thomasonから、Fictitiousの新機能を発表しました。また、Fictitiousをモバイルでも使える新しいツールも発表しました。<a href="#">詳しくは、こちらをご覧ください。</a></p>\n' +
+        '<h3>アワード受賞者</h3>\n' +
+        '<p>毎年Fictitious Community Acceleratorプログラムへの応募者から、すばらしいコミュニティビルダーを表彰しています。今年の受賞者はJohn Smith。Johnはパンデミックの最中にコミュニティを始め、1,000人以上の人々を集めて親切な話を共有しました。</p>\n',
+      tags: [Array]
+    }
+  ]
+}
+最初の記事のpublishedAt:
+undefined
+型: undefined
+[11ty] Writing ./_site/index.html from ./src/index.njk
+[11ty] Writing ./_site/posts/article-3/index.html from ./src/posts/post.njk
+[11ty] Writing ./_site/posts/article-2/index.html from ./src/posts/post.njk
+[11ty] Writing ./_site/posts/article-1/index.html from ./src/posts/post.njk
+[11ty] Benchmark   6656ms  89%     1× (Data) `./src/_data/newtArticles.js`
+[11ty] Wrote 4 files in 7.47 seconds (1868.1ms each, v3.0.0)
+[11ty] Watching…
+[11ty] Server at http://localhost:8080/
