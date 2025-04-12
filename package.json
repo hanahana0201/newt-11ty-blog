@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-  "start": "eleventy --serve",
-  "build": "eleventy"
-}
-,
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,6 +13,7 @@
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "dotenv": "^16.5.0",
-    "newt-client-js": "^3.3.8"
+    "newt-client-js": "^3.3.8",
+    "striptags": "^3.2.0"
   }
 }

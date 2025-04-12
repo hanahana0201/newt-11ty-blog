@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const striptags = require('striptags');
 
 module.exports = function (eleventyConfig) {
   // 日付フォーマットフィルターの追加
@@ -8,6 +9,9 @@ module.exports = function (eleventyConfig) {
 
   // 静的ファイルのコピー
   eleventyConfig.addPassthroughCopy("src/css");
+
+  // htmlタグを取り除く
+  eleventyConfig.addFilter("striptags", striptags);
 
   return {
     dir: {

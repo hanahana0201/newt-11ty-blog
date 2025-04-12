@@ -9,7 +9,7 @@ title: ブログホーム
   <li>
     <h3><a href="/posts/{{ article.slug }}/">{{ article.title }}</a></h3>
     <p>公開日: {{ article.publishedAt | date("YYYY年MM月DD日") }}</p>
-    <p>{{ article.body | truncate(100) }}</p>
+    <p>{{ article.body | striptags | truncate(100) }}</p>
   </li>
 {% endfor %}
 </ul>
